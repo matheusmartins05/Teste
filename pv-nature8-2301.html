@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <link />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      div,
+      header {
+        font-family: "Montserrat", sans-serif;
+      }
+      a {
+        text-decoration: none;
+      }
+      .text-green-light {
+        color: #3ec18d;
+      }
+      .bg-green-light-label {
+        background-color: #e1f5e7;
+      }
+    </style>
+
+    <title>Nunca Visto Antes</title>
+  </head>
+
+  <body>
+    <div
+      class="navbar d-flex justify-content-center bg-danger text-center px-3"
+    >
+      <p class="text-white h5">
+        Disponível apenas até hoje, <span id="today-date"></span>
+      </p>
+    </div>
+
+    <header>
+      <h2 class="text-center mt-4">
+        MÉDICOS ALERTAM:
+
+        <span>
+          Esse
+          <strong style="color: #b8001a; white-space: nowrap"
+            >fungo come os seus ossos</strong
+          >
+          assim como cupins devoram madeira velha
+        </span>
+        <br />
+        <p style="font-size: 16px; white-space: normal;">
+          (Veja o que fazer para eliminá-lo do seu corpo e se livrar das dores pra sempre)
+        </p>
+      </h2>
+
+      <div class="mt-3">
+        <div
+          id="vid_65aba55bdd42ff00093bd273"
+          style="position: relative; width: 100%; padding: 56.25% 0 0"
+        >
+          <img
+            id="thumb_65aba55bdd42ff00093bd273"
+            src="https://images.converteai.net/035cabae-3fc2-4fcc-9aa5-028eb511b2a2/players/65aba55bdd42ff00093bd273/thumbnail.jpg"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+            "
+          />
+          <div
+            id="backdrop_65aba55bdd42ff00093bd273"
+            style="
+              position: absolute;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              -webkit-backdrop-filter: blur(5px);
+              backdrop-filter: blur(5px);
+            "
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <script
+      disable-devtool-auto
+      src="https://cdn.jsdelivr.net/npm/disable-devtool"
+    ></script>
+
+    <script>
+      const todayDateElement = document.querySelector("#today-date");
+      const today = new Intl.DateTimeFormat("pt-br", {
+        dateStyle: "long",
+      }).format(new Date());
+      todayDateElement.innerHTML = today;
+
+      function repassarUTM() {
+        // Obtém os parâmetros UTM e outros query params do URL atual
+        let queryParams = new URLSearchParams(window.location.search);
+
+        // Adiciona o parâmetro de consulta fixo
+        queryParams.set("utm_term", "alv01");
+
+        // Seleciona todos os links na página que você deseja adicionar os parâmetros
+        let elementos = document.querySelectorAll("a");
+
+        // Adiciona os parâmetros aos URLs dos elementos selecionados
+        elementos.forEach((elemento) => {
+          let url = new URL(elemento.getAttribute("href"));
+          queryParams.forEach((valor, chave) => {
+            url.searchParams.set(chave, valor);
+          });
+          elemento.setAttribute("href", url.toString());
+        });
+      }
+
+      // Chama a função quando a página é carregada
+      document.addEventListener("DOMContentLoaded", repassarUTM);
+    </script>
+    <script type="text/javascript" id="scr_65aba55bdd42ff00093bd273">
+      var s = document.createElement("script");
+      (s.src =
+        "https://scripts.converteai.net/035cabae-3fc2-4fcc-9aa5-028eb511b2a2/players/65aba55bdd42ff00093bd273/player.js"),
+        (s.async = !0),
+        document.head.appendChild(s);
+    </script>
+    <script>
+      window.onload = function () {
+        smartplayer.instances[0].on("loadeddata", () => {
+          const buttonLinks = document.querySelectorAll(
+            ".smartplayer-call-action--link"
+          );
+          const queryString = window.location.search;
+
+          buttonLinks.forEach((buttonLink) => {
+            if (buttonLink.href.indexOf("?") == "-1") {
+              buttonLink.href += queryString;
+              return;
+            }
+            buttonLink.href += queryString.replace("?", "&");
+          });
+        });
+      };
+    </script>
+  </body>
+</html>
